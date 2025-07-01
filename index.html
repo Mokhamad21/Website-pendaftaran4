@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran MAPABA PMII</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header img {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+        .header h2 {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #34495e;
+        }
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+        .btn-submit {
+            background-color: #3498db;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+            display: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-container">
+                    <div class="header">
+                        <img src="https://via.placeholder.com/150x150?text=PMII" alt="Logo PMII" class="img-fluid">
+                        <h2>FORMULIR PENDAFTARAN MAPABA PMII</h2>
+                        <p class="text-muted">Masa Penerimaan Anggota Baru PMII</p>
+                    </div>
+
+                    <form id="registrationForm" enctype="multipart/form-data">
+                        <!-- Data Pribadi -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px;">DATA PRIBADI</h5>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="fullName" class="form-label required-field">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="fullName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nickName" class="form-label">Nama Panggilan</label>
+                                    <input type="text" class="form-control" id="nickName">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="birthPlace" class="form-label required-field">Tempat Lahir</label>
+                                    <input type="text" class="form-control" id="birthPlace" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="birthDate" class="form-label required-field">Tanggal Lahir</label>
+                                    <input type="date" class="form-control" id="birthDate" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label required-field">Jenis Kelamin</label>
+                                    <select class="form-select" id="gender" required>
+                                        <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="religion" class="form-label required-field">Agama</label>
+                                    <select class="form-select" id="religion" required>
+                                        <option value="" selected disabled>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="address" class="form-label required-field">Alamat Lengkap</label>
+                                <textarea class="form-control" id="address" rows="3" required></textarea>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label required-field">No. HP/WhatsApp</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Pendidikan -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px;">DATA PENDIDIKAN</h5>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="faculty" class="form-label required-field">Fakultas</label>
+                                    <select class="form-select" id="faculty" required>
+                                        <option value="" selected disabled>Pilih Fakultas</option>
+                                        <option value="Fakultas Ilmu Tarbiyah dan Keguruan">Fakultas Ilmu Tarbiyah dan Keguruan</option>
+                                        <option value="Fakultas Syariah dan Hukum">Fakultas Syariah dan Hukum</option>
+                                        <option value="Fakultas Ushuluddin dan Filsafat">Fakultas Ushuluddin dan Filsafat</option>
+                                        <option value="Fakultas Dakwah dan Komunikasi">Fakultas Dakwah dan Komunikasi</option>
+                                        <option value="Fakultas Adab dan Humaniora">Fakultas Adab dan Humaniora</option>
+                                        <option value="Fakultas Psikologi">Fakultas Psikologi</option>
+                                        <option value="Fakultas Ekonomi dan Bisnis Islam">Fakultas Ekonomi dan Bisnis Islam</option>
+                                        <option value="Fakultas Sains dan Teknologi">Fakultas Sains dan Teknologi</option>
+                                        <option value="Fakultas Ilmu Sosial dan Ilmu Politik">Fakultas Ilmu Sosial dan Ilmu Politik</option>
+                                        <option value="Fakultas Kedokteran dan Ilmu Kesehatan">Fakultas Kedokteran dan Ilmu Kesehatan</option>
+                                        <option value="Fakultas Pertanian">Fakultas Pertanian</option>
+                                        <option value="Fakultas Teknik">Fakultas Teknik</option>
+                                        <option value="Fakultas Matematika dan Ilmu Pengetahuan Alam">Fakultas Matematika dan Ilmu Pengetahuan Alam</option>
+                                        <option value="Fakultas Ilmu Komputer">Fakultas Ilmu Komputer</option>
+                                        <option value="Fakultas Hukum">Fakultas Hukum</option>
+                                        <option value="Fakultas Ekonomi">Fakultas Ekonomi</option>
+                                        <option value="Fakultas Ilmu Budaya">Fakultas Ilmu Budaya</option>
+                                        <option value="Fakultas Farmasi">Fakultas Farmasi</option>
+                                        <option value="Fakultas Kedokteran Gigi">Fakultas Kedokteran Gigi</option>
+                                        <option value="Fakultas Kesehatan Masyarakat">Fakultas Kesehatan Masyarakat</option>
+                                        <option value="Fakultas Keperawatan">Fakultas Keperawatan</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="studyProgram" class="form-label required-field">Program Studi</label>
+                                    <input type="text" class="form-control" id="studyProgram" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="nim" class="form-label required-field">NIM</label>
+                                    <input type="text" class="form-control" id="nim" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="semester" class="form-label required-field">Semester</label>
+                                    <select class="form-select" id="semester" required>
+                                        <option value="" selected disabled>Pilih Semester</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9+">9+</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Organisasi -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px;">PENGALAMAN ORGANISASI</h5>
+                            
+                            <div class="mb-3">
+                                <label for="previousOrganization" class="form-label">Pengalaman Organisasi (jika ada)</label>
+                                <textarea class="form-control" id="previousOrganization" rows="3"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="joinReason" class="form-label required-field">Alasan ingin bergabung dengan PMII</label>
+                                <textarea class="form-control" id="joinReason" rows="3" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Upload Foto -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px;">UPLOAD FOTO</h5>
+                            
+                            <div class="mb-3">
+                                <label for="photo" class="form-label required-field">Upload Foto Formal (Max 2MB)</label>
+                                <input type="file" class="form-control" id="photo" accept="image/*" required>
+                                <img id="photoPreview" class="preview-image" alt="Preview Foto">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ktm" class="form-label required-field">Upload Scan KTM (Max 2MB)</label>
+                                <input type="file" class="form-control" id="ktm" accept="image/*" required>
+                                <img id="ktmPreview" class="preview-image" alt="Preview KTM">
+                            </div>
+                        </div>
+
+                        <!-- Pernyataan -->
+                        <div class="mb-4">
+                            <h5 class="mb-3" style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px;">PERNYATAAN</h5>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="declaration" required>
+                                <label class="form-check-label" for="declaration">
+                                    Saya menyatakan bahwa data yang saya isikan adalah benar dan dapat dipertanggungjawabkan.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane me-2"></i> Kirim Pendaftaran
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Success -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Pendaftaran Berhasil!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Terima kasih telah mendaftar MAPABA PMII. Data Anda telah berhasil dikirim.</p>
+                    <p>Silakan lanjutkan ke WhatsApp untuk konfirmasi lebih lanjut.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <a id="whatsappLink" href="#" target="_blank" class="btn btn-success">
+                        <i class="fab fa-whatsapp me-2"></i> Lanjut ke WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Preview image before upload
+            function readURL(input, previewId) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        $('#' + previewId).attr('src', e.target.result).show();
+                    }
+                    
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#photo").change(function() {
+                readURL(this, 'photoPreview');
+            });
+
+            $("#ktm").change(function() {
+                readURL(this, 'ktmPreview');
+            });
+
+            // Form submission
+            $('#registrationForm').submit(function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                if (!this.checkValidity()) {
+                    e.stopPropagation();
+                    this.classList.add('was-validated');
+                    return;
+                }
+                
+                // Get form data
+                const formData = {
+                    fullName: $('#fullName').val(),
+                    nickName: $('#nickName').val(),
+                    birthPlace: $('#birthPlace').val(),
+                    birthDate: $('#birthDate').val(),
+                    gender: $('#gender').val(),
+                    religion: $('#religion').val(),
+                    address: $('#address').val(),
+                    phone: $('#phone').val(),
+                    email: $('#email').val(),
+                    faculty: $('#faculty').val(),
+                    studyProgram: $('#studyProgram').val(),
+                    nim: $('#nim').val(),
+                    semester: $('#semester').val(),
+                    previousOrganization: $('#previousOrganization').val(),
+                    joinReason: $('#joinReason').val()
+                };
+                
+                // Create WhatsApp message
+                let whatsappMessage = `Halo, saya ingin mendaftar MAPABA PMII dengan data sebagai berikut:\n\n`;
+                whatsappMessage += `*Nama Lengkap*: ${formData.fullName}\n`;
+                whatsappMessage += `*Nama Panggilan*: ${formData.nickName || '-'}\n`;
+                whatsappMessage += `*Tempat, Tanggal Lahir*: ${formData.birthPlace}, ${new Date(formData.birthDate).toLocaleDateString('id-ID')}\n`;
+                whatsappMessage += `*Jenis Kelamin*: ${formData.gender}\n`;
+                whatsappMessage += `*Agama*: ${formData.religion}\n`;
+                whatsappMessage += `*Alamat*: ${formData.address}\n`;
+                whatsappMessage += `*No. HP*: ${formData.phone}\n`;
+                whatsappMessage += `*Email*: ${formData.email || '-'}\n\n`;
+                whatsappMessage += `*Data Pendidikan*\n`;
+                whatsappMessage += `Fakultas: ${formData.faculty}\n`;
+                whatsappMessage += `Program Studi: ${formData.studyProgram}\n`;
+                whatsappMessage += `NIM: ${formData.nim}\n`;
+                whatsappMessage += `Semester: ${formData.semester}\n\n`;
+                whatsappMessage += `*Pengalaman Organisasi*: ${formData.previousOrganization || 'Tidak ada'}\n\n`;
+                whatsappMessage += `*Alasan Bergabung*: ${formData.joinReason}\n\n`;
+                whatsappMessage += `Terima kasih.`;
+                
+                // Encode message for WhatsApp URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                // Set WhatsApp link (replace phone number with actual PMII contact)
+                const whatsappNumber = '6281234567890'; // Ganti dengan nomor WhatsApp PMII yang benar
+                $('#whatsappLink').attr('href', `https://wa.me/${whatsappNumber}?text=${encodedMessage}`);
+                
+                // Show success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+                
+                // Here you would typically also send the data to your server
+                // For example using AJAX:
+                /*
+                const formDataToSend = new FormData(this);
+                
+                $.ajax({
+                    url: 'your-server-endpoint',
+                    type: 'POST',
+                    data: formDataToSend,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // Handle success response
+                        successModal.show();
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        alert('Terjadi kesalahan saat mengirim data. Silakan coba lagi.');
+                    }
+                });
+                */
+            });
+        });
+    </script>
+</body>
+</html>
